@@ -1,0 +1,37 @@
+buildscript {
+    ext.kotlin_version = '1.2.30'
+    ext.gdx_version = '1.9.8'
+    ext.ktx_version = '1.9.8-b3'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+apply plugin: "idea"
+apply plugin: "kotlin"
+
+sourceSets.main.kotlin.srcDirs = ["src/main"]
+
+dependencies {
+    compile "com.badlogicgames.gdx:gdx:$gdx_version"
+    compile "com.badlogicgames.gdx:gdx-box2d:$gdx_version"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile "io.github.libktx:ktx-app:$ktx_version"
+    compile "io.github.libktx:ktx-box2d:$ktx_version"
+    compile "io.github.libktx:ktx-collections:$ktx_version"
+    compile "io.github.libktx:ktx-log:$ktx_version"
+    compile "io.github.libktx:ktx-math:$ktx_version"
+}
+
