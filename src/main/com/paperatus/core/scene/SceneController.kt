@@ -1,6 +1,7 @@
 package com.paperatus.core.scene
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.Disposable
@@ -27,6 +28,8 @@ class SceneController : Disposable {
 
     private var isInitialized = false
     private var isSceneCreated = false
+
+    var clearColor: Color = Color.BLACK
 
     /**
      * Initializes the SceneController
@@ -100,7 +103,7 @@ class SceneController : Disposable {
         if (!isInitialized)
             throw RuntimeException("SceneController not initialized! Did you forget to call init()?")
 
-        Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f)
+        Gdx.gl.glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         if (!paused) activeScene?.let {
