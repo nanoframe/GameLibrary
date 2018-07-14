@@ -21,7 +21,10 @@ open class NodeRenderer(val game: Game) : NodeTraversal.Callback {
         val batch = data as SpriteBatch
 
         gameObject.getComponent<RenderComponent>()?.let {
-            if (it.renderMode == RenderComponent.Mode.CUSTOM) return
+            if (it.renderMode == RenderComponent.Mode.CUSTOM) {
+                it.draw(batch)
+                return
+            }
             val spriteName = it.sprite
                     ?: throw RenderException("Sprite name is null")
 

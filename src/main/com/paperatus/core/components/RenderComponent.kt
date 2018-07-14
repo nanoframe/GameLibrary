@@ -43,6 +43,8 @@ open class RenderComponent(
 
     override fun receive(what: ComponentMessage, payload: Any?) = Unit
 
+    open fun draw(batch: SpriteBatch) = Unit
+
     fun addRenderParams(params: RenderParams) = customParams.add(params)
 
     fun removeRenderParams(params: RenderParams, identity: Boolean = true) =
